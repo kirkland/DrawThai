@@ -5,6 +5,12 @@
     android:layout_height="wrap_content"
     >
     
+<LinearLayout
+android:orientation="horizontal"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content">
+
+    
 <EditText
 android:id="@+id/text1"
 android:text="@string/defaultLeftText"
@@ -21,4 +27,5 @@ android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 android:layout_weight="1"/>
 
+</LinearLayout>
 </LinearLayout>
