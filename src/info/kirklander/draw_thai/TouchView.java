@@ -8,6 +8,10 @@ import android.view.View;
 public class TouchView extends View {
 	public TouchView(Context context) {
 		super(context);
+		
+		// TODO: a smarter way to fill in all available space
+		setMinimumWidth(1000);
+		setMinimumHeight(1000);
 	}
 	
 	@Override
