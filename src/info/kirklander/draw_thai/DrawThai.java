@@ -28,11 +28,18 @@ public class DrawThai extends Activity {
         		}
         		
         		// circle is at 100,100, so tell distance from that point.
-        		float ydif = Math.abs(event.getX() - 100);
-        		float xdif = Math.abs(event.getY() - 100);
-        		float distance = (float) Math.sqrt(xdif*xdif + ydif*ydif);
+//        		float ydif = Math.abs(event.getX() - 100);
+//        		float xdif = Math.abs(event.getY() - 100);
+//        		float distance = (float) Math.sqrt(xdif*xdif + ydif*ydif);
+//        		
+//        		text1.setText("" + distance);
         		
-        		text1.setText("" + distance);
+        		Point p1 = new Point(50, 50);
+        		Point p2 = new Point(100, 100);
+        		
+        		PointSeries points = new PointSeries();
+        		points.addPoint(p1);
+        		points.addPoint(p2);
         		
         		return true;
         	} });
