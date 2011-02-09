@@ -2,7 +2,7 @@ package info.kirklander.draw_thai;
 
 public class Point {
 	private final float x, y;
-	private final float radius = (float) 10.0;
+	private static final float RADIUS = (float) 10.0;
 	
 	public Point(float new_x, float new_y) {
 		this.x = new_x;
