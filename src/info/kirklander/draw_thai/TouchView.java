@@ -36,5 +36,10 @@ public class TouchView extends View {
 		PointSeries points = new PointSeries();
 		points.addPoint(p1);
 		points.addPoint(p2);
+		
+		for (Point point : points.getPoints()) {
+			canvas.drawCircle(point.getX(), point.getY(), Point.RADIUS, paint);
+		}
+
 	}
 }
