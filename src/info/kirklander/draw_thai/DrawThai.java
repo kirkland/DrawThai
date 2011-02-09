@@ -13,7 +13,6 @@ public class DrawThai extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        // TODO: do these need to be inside onCreate, or can be outside?
         final EditText text1 = (EditText) findViewById(R.id.text1);
         final EditText text2 = (EditText) findViewById(R.id.text2);
         
