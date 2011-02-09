@@ -34,12 +34,7 @@ public class DrawThai extends Activity {
 //        		
 //        		text1.setText("" + distance);
         		
-        		Point p1 = new Point(50, 50);
-        		Point p2 = new Point(100, 100);
-        		
-        		PointSeries points = new PointSeries();
-        		points.addPoint(p1);
-        		points.addPoint(p2);
+
         		
         		return true;
         	} });

@@ -29,6 +29,12 @@ public class TouchView extends View {
 		paint.setStyle(Style.FILL);
 		paint.setColor(Color.BLUE);
 
-		canvas.drawCircle(100, 100, 5, paint);
+//		canvas.drawCircle(100, 100, 5, paint);
+		
+		Point p1 = new Point(50, 50);
+		Point p2 = new Point(100, 100);
+		PointSeries points = new PointSeries();
+		points.addPoint(p1);
+		points.addPoint(p2);
 	}
 }
