@@ -37,9 +37,11 @@ public class DrawThai extends Activity {
         tv.setOnTouchListener(new View.OnTouchListener() {
         	@Override
         	public boolean onTouch(View v, MotionEvent event) {
-        		if (MotionEvent.ACTION_DOWN != event.getAction()) {
-        			return false;
-        		}
+//        		if (MotionEvent.ACTION_DOWN != event.getAction()) {
+//        			return false;
+//        		}
+        		
+        		text2.setText("" + event.getAction());
         		
         		// on touch, check model to see if we hit a point
         		boolean touchedGoal = points.pointAtLocation(event.getX(), event.getY());
