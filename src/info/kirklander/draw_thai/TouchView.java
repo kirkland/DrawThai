@@ -31,11 +31,19 @@ public class TouchView extends View {
 
 //		canvas.drawCircle(100, 100, 5, paint);
 		
+		// TODO: all this shit should be in DrawThai
 		Point p1 = new Point(50, 50);
 		Point p2 = new Point(100, 100);
 		PointSeries points = new PointSeries();
 		points.addPoint(p1);
 		points.addPoint(p2);
+		
+		points.setPointSeriesChangeListener(new PointSeries.PointSeriesChangeListener() {
+			@Override 
+			public void onPointSeriesChange(PointSeries ps) {
+				
+			}
+		});
 		
 		for (Point point : points.getPoints()) {
 			canvas.drawCircle(point.getX(), point.getY(), Point.RADIUS, paint);

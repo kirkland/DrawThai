@@ -27,6 +27,8 @@ public class DrawThai extends Activity {
         			return false;
         		}
         		
+        		
+        		
         		// circle is at 100,100, so tell distance from that point.
 //        		float ydif = Math.abs(event.getX() - 100);
 //        		float xdif = Math.abs(event.getY() - 100);
