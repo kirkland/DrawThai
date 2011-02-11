@@ -28,4 +28,15 @@ public class PointSeries {
 			pointSeriesChangeListener.onPointSeriesChange(this);
 		}
 	}
+	
+	public boolean pointAtLocation(float x, float y) {
+		boolean rv = false;
+		for (Point point : points) {
+			if (point.insidePoint(x, y) == true) {
+				rv = true;
+				break;
+			}
+		}
+		return rv;
+	}
 }

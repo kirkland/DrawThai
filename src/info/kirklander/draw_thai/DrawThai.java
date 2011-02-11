@@ -41,8 +41,14 @@ public class DrawThai extends Activity {
         			return false;
         		}
         		
-        		// on touch, check model to see if we hit a dot
-        		boolean touchedGoal = true;
+        		// on touch, check model to see if we hit a point
+        		boolean touchedGoal = points.pointAtLocation(event.getX(), event.getY());
+        		
+        		if (touchedGoal) {
+        			text1.setText("You got it!");
+        		} else {
+        			text1.setText("You missed!");
+        		}
         		
         		return true;
         	} 

@@ -21,4 +21,12 @@ public class Point {
 		float dy = Math.abs(other_y - y);
 		return (float) Math.sqrt(dx*dx - dy*dx);
 	}
+	
+	public boolean insidePoint(float x, float y) {
+		if (distance(x,y) < RADIUS) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
