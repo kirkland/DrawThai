@@ -27,13 +27,13 @@ public class TouchView extends View {
 	
 	@Override
 	protected void onDraw(Canvas canvas) {
-		canvas.drawColor(Color.RED);
+		canvas.drawColor(Color.WHITE);
 		
 		Paint paint = new Paint();
 		paint.setStyle(Style.FILL);
-		paint.setColor(Color.BLUE);
 		
 		for (Point point : points.getPoints()) {
+			paint.setColor(point.color());
 			canvas.drawCircle(point.getX(), point.getY(), Point.RADIUS, paint);
 		}
 

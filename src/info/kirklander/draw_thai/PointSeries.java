@@ -39,4 +39,13 @@ public class PointSeries {
 		}
 		return rv;
 	}
+	
+	public void tellOfMovement(float x, float y) {
+		for (Point point : points) {
+			if (point.insidePoint(x, y) == true) {
+				point.changeStatus(Point.TOUCHED);
+				notifyListener();
+			}
+		}
+	}
 }
