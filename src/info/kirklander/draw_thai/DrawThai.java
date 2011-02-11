@@ -13,10 +13,17 @@ public class DrawThai extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
+        // set up the model
+		Point p1 = new Point(50, 50);
+		Point p2 = new Point(100, 100);
+		PointSeries points = new PointSeries();
+		points.addPoint(p1);
+		points.addPoint(p2);
+        
         final EditText text1 = (EditText) findViewById(R.id.text1);
         final EditText text2 = (EditText) findViewById(R.id.text2);
         
-        final TouchView tv = new TouchView(this);
+        final TouchView tv = new TouchView(this, points);
         
         ((ViewGroup) findViewById(R.id.main)).addView(tv);
         
@@ -27,6 +34,8 @@ public class DrawThai extends Activity {
         			return false;
         		}
         		
+        		// on touch, check model to see if we hit a dot
+        		boolean touchedGoal = true;
         		
         		
         		// circle is at 100,100, so tell distance from that point.

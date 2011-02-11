@@ -8,8 +8,12 @@ import android.graphics.Paint.Style;
 import android.view.View;
 
 public class TouchView extends View {
-	public TouchView(Context context) {
+	private final PointSeries points;
+	
+	public TouchView(Context context, PointSeries points) {
 		super(context);
+		
+		this.points = points;
 		
 		// TODO: a smarter way to fill in all available space
 		setMinimumWidth(1000);
@@ -28,20 +32,11 @@ public class TouchView extends View {
 		Paint paint = new Paint();
 		paint.setStyle(Style.FILL);
 		paint.setColor(Color.BLUE);
-
-//		canvas.drawCircle(100, 100, 5, paint);
-		
-		// TODO: all this shit should be in DrawThai
-		Point p1 = new Point(50, 50);
-		Point p2 = new Point(100, 100);
-		PointSeries points = new PointSeries();
-		points.addPoint(p1);
-		points.addPoint(p2);
 		
 		points.setPointSeriesChangeListener(new PointSeries.PointSeriesChangeListener() {
 			@Override 
 			public void onPointSeriesChange(PointSeries ps) {
-				
+				// invalidate view here?
 			}
 		});
 		
