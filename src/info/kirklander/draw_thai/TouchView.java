@@ -33,13 +33,6 @@ public class TouchView extends View {
 		paint.setStyle(Style.FILL);
 		paint.setColor(Color.BLUE);
 		
-		points.setPointSeriesChangeListener(new PointSeries.PointSeriesChangeListener() {
-			@Override 
-			public void onPointSeriesChange(PointSeries ps) {
-				// invalidate view here?
-			}
-		});
-		
 		for (Point point : points.getPoints()) {
 			canvas.drawCircle(point.getX(), point.getY(), Point.RADIUS, paint);
 		}
