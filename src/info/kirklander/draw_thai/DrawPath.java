@@ -11,9 +11,21 @@ import android.view.MotionEvent;
 
 public class DrawPath {
 	private final LinkedList<DrawPoint> drawPoints = new LinkedList<DrawPoint>();
+	private final PointSeries goalPoints;
 	
 	public interface DrawPathChangeListener {
 		void onDrawPathChange(DrawPath drawPath);
+	}
+	
+	public DrawPath(PointSeries goalPoints) {
+		this.goalPoints = goalPoints;
+		
+		goalPoints.setPointSeriesChangeListener(new PointSeries.PointSeriesChangeListener() {
+			@Override 
+			public void onPointSeriesChange(PointSeries ps) {
+				notifyListener();
+			}
+		});
 	}
 	
 	private DrawPathChangeListener drawPathChangeListener;
@@ -28,6 +40,10 @@ public class DrawPath {
 	
 	public LinkedList<DrawPoint> getDrawPoints() {
 		return drawPoints;
+	}
+	
+	public PointSeries getGoalPoints() {
+		return this.goalPoints;
 	}
 	
 	// TODO: maybe passing a MotionEvent to this is a violation of MVC.

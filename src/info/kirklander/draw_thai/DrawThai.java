@@ -21,19 +21,12 @@ public class DrawThai extends Activity {
 		points.addPoint(p2);
 		
 		// DrawPath instance holds where the user has been so far.
-		final DrawPath drawPath = new DrawPath();
+		final DrawPath drawPath = new DrawPath(points);
         
         final EditText text1 = (EditText) findViewById(R.id.text1);
         final EditText text2 = (EditText) findViewById(R.id.text2);
         
-        final TouchView tv = new TouchView(this, points, drawPath);
-        
-		points.setPointSeriesChangeListener(new PointSeries.PointSeriesChangeListener() {
-			@Override 
-			public void onPointSeriesChange(PointSeries ps) {
-				tv.invalidate();
-			}
-		});
+        final TouchView tv = new TouchView(this, drawPath);
 		
 		drawPath.setDrawPathChangeListener(new DrawPath.DrawPathChangeListener() {
 			@Override

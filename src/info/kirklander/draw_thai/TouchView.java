@@ -9,13 +9,11 @@ import android.graphics.Paint.Style;
 import android.view.View;
 
 public class TouchView extends View {
-	private final PointSeries points;
 	private final DrawPath drawPath;
 	
-	public TouchView(Context context, PointSeries points, DrawPath drawPath) {
+	public TouchView(Context context, DrawPath drawPath) {
 		super(context);
 		
-		this.points = points;
 		this.drawPath = drawPath;
 		
 		// TODO: a smarter way to fill in all available space
@@ -35,21 +33,21 @@ public class TouchView extends View {
 		Paint paint = new Paint();
 		paint.setStyle(Style.FILL);
 		
+		for (Point point : drawPath.getGoalPoints().getPoints()) {
+			paint.setColor(point.color());
+			canvas.drawCircle(point.getX(), point.getY(), Point.RADIUS, paint);
+		}
+		
 		// holds previous coords so we can draw line from them to current point
 		float prev_x = 0, prev_y = 0;
 		
 		paint.setColor(Color.BLACK);
+		paint.setStrokeWidth(5);
 		for (DrawPoint drawPoint : drawPath.getDrawPoints()) {
 			if (prev_x != 0 && prev_y != 0) {
 				canvas.drawLine(prev_x, prev_y, drawPoint.getX(), drawPoint.getY(), paint);
 			}
 			prev_x = drawPoint.getX(); prev_y = drawPoint.getY();
 		}
-		
-		for (Point point : points.getPoints()) {
-			paint.setColor(point.color());
-			canvas.drawCircle(point.getX(), point.getY(), Point.RADIUS, paint);
-		}
-
 	}
 }
