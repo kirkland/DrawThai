@@ -27,7 +27,7 @@ public class Point {
 	public float distance(float other_x, float other_y) {
 		float dx = Math.abs(other_x - x);
 		float dy = Math.abs(other_y - y);
-		return (float) Math.sqrt(dx*dx - dy*dx);
+		return (float) Math.sqrt(dx*dx + dy*dy);
 	}
 	
 	public boolean insidePoint(float x, float y) {
