@@ -48,9 +48,8 @@ public class DrawThai extends Activity {
         	@Override
         	public boolean onTouch(View v, MotionEvent event) {
         		// update DrawPath with what we've done.
-        		drawPath.addEvent(event);
-        		
-        		// TODO: look at history too
+        		drawPath.addDrawPointAtCoords(event.getX(), event.getY());
+
         		if (MotionEvent.ACTION_MOVE == event.getAction()) {
         			points.tellOfMovement(event.getX(), event.getY());
         		}
