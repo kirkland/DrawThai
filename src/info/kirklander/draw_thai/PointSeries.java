@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 public class PointSeries {
 	private final LinkedList<Point> points = new LinkedList<Point>();
+	private Point currentGoalPoint;
 	
 	public interface PointSeriesChangeListener {
 		void onPointSeriesChange(PointSeries pointSeries);
@@ -41,11 +42,20 @@ public class PointSeries {
 	}
 	
 	public void tellOfMovement(float x, float y) {
-		for (Point point : points) {
-			if (point.insidePoint(x, y) == true) {
-				point.changeStatus(Point.TOUCHED);
-				notifyListener();
+		if (null == currentGoalPoint) {
+			currentGoalPoint = this.points.getFirst();
+		}
+
+		// our only goal is the next ordered point
+		if (currentGoalPoint.insidePoint(x, y) == true) {
+			currentGoalPoint.changeStatus(Point.TOUCHED);
+			int prevIndex = points.indexOf(currentGoalPoint);
+			
+			if (prevIndex + 1 != points.size()) {
+				currentGoalPoint = points.get(prevIndex + 1); // ridiculous way to do things
 			}
+			
+			notifyListener();
 		}
 	}
 }
