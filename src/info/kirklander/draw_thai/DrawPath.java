@@ -46,13 +46,6 @@ public class DrawPath {
 		return this.goalPoints;
 	}
 	
-	// TODO: maybe passing a MotionEvent to this is a violation of MVC.
-	public void addEvent(MotionEvent event) {
-		 for (int i = 0, n = event.getHistorySize(); i < n; i++) {
-			 addDrawPointAtCoords(event.getHistoricalX(i), event.getHistoricalY(i));
-		 }
-	}
-	
 	private void notifyListener() {
 		if (null != drawPathChangeListener) {
 			drawPathChangeListener.onDrawPathChange(this);

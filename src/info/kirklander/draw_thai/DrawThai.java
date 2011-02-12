@@ -16,9 +16,11 @@ public class DrawThai extends Activity {
         // set up points model (these are the goals that the user must move over in order)
 		Point p1 = new Point(50, 50);
 		Point p2 = new Point(100, 100);
+		Point p3 = new Point(150, 150);
 		final PointSeries points = new PointSeries();
 		points.addPoint(p1);
 		points.addPoint(p2);
+		points.addPoint(p3);
 		
 		// DrawPath instance holds where the user has been so far.
 		final DrawPath drawPath = new DrawPath(points);
