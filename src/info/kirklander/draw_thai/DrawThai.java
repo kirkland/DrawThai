@@ -14,14 +14,21 @@ public class DrawThai extends Activity {
         setContentView(R.layout.main);
         
         // set up points model (these are the goals that the user must move over in order)
-		Point p1 = new Point(50, 50);
-		Point p2 = new Point(100, 100);
-		Point p3 = new Point(150, 150);
-		final PointSeries points = new PointSeries();
-		points.addPoint(p1);
-		points.addPoint(p2);
-		points.addPoint(p3);
-		
+        // showing Gor Gai now as a proof of concept.
+        // TODO: store this data more better like
+        final PointSeries points = new PointSeries();
+        points.addPoint(new Point(75, 300));
+        points.addPoint(new Point(75, 250));
+        points.addPoint(new Point(75, 200));
+        points.addPoint(new Point(100, 175));
+        points.addPoint(new Point(75, 150));
+        points.addPoint(new Point(125, 125));
+        points.addPoint(new Point(175, 150));
+        points.addPoint(new Point(175, 150));
+        points.addPoint(new Point(175, 200));
+        points.addPoint(new Point(175, 250));
+        points.addPoint(new Point(175, 300));
+        
 		// DrawPath instance holds where the user has been so far.
 		final DrawPath drawPath = new DrawPath(points);
         
