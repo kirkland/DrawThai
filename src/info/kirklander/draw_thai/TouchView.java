@@ -35,9 +35,15 @@ public class TouchView extends View {
 		Paint paint = new Paint();
 		paint.setStyle(Style.FILL);
 		
+		// holds previous coords so we can draw line from them to current point
+		float prev_x = 0, prev_y = 0;
+		
 		paint.setColor(Color.BLACK);
 		for (DrawPoint drawPoint : drawPath.getDrawPoints()) {
-			canvas.drawCircle(drawPoint.getX(), drawPoint.getY(), 1, paint);
+			if (prev_x != 0 && prev_y != 0) {
+				canvas.drawLine(prev_x, prev_y, drawPoint.getX(), drawPoint.getY(), paint);
+			}
+			prev_x = drawPoint.getX(); prev_y = drawPoint.getY();
 		}
 		
 		for (Point point : points.getPoints()) {
