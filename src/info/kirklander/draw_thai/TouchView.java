@@ -10,7 +10,7 @@ import android.view.View;
 
 public class TouchView extends View {
 	// since we can't see what's under our figure, add this as an offset
-	static float TOUCH_OFFSET = (float) 10.0;
+	static float TOUCH_OFFSET = (float) 60.0;
 	
 	private final DrawPath drawPath;
 	
