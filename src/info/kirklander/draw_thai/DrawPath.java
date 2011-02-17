@@ -3,14 +3,10 @@
 
 package info.kirklander.draw_thai;
 
-import info.kirklander.draw_thai.PointSeries.PointSeriesChangeListener;
-
 import java.util.LinkedList;
 
-import android.view.MotionEvent;
-
 public class DrawPath {
-	private final LinkedList<DrawPoint> drawPoints = new LinkedList<DrawPoint>();
+	private LinkedList<DrawPoint> drawPoints = new LinkedList<DrawPoint>();
 	private final PointSeries goalPoints;
 	
 	public interface DrawPathChangeListener {
@@ -66,5 +62,11 @@ public class DrawPath {
 		public float getY() {
 			return this.y;
 		}
+	}
+	
+	// on event down, clear out whatever we had before.
+	public void startNewPath(float x, float y) {
+		this.drawPoints = new LinkedList<DrawPoint>();
+		goalPoints.reset();
 	}
 }

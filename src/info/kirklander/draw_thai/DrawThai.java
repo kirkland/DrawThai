@@ -37,6 +37,7 @@ public class DrawThai extends Activity {
         
         final TouchView tv = new TouchView(this, drawPath);
 		
+        // redraw view whenever model changes
 		drawPath.setDrawPathChangeListener(new DrawPath.DrawPathChangeListener() {
 			@Override
 			public void onDrawPathChange(DrawPath drawPath) {
@@ -49,11 +50,13 @@ public class DrawThai extends Activity {
         tv.setOnTouchListener(new View.OnTouchListener() {
         	@Override
         	public boolean onTouch(View v, MotionEvent event) {
-        		// update DrawPath with what we've done.
-        		drawPath.addDrawPointAtCoords(event.getX(), event.getY());
-
         		if (MotionEvent.ACTION_MOVE == event.getAction()) {
+        			drawPath.addDrawPointAtCoords(event.getX(), event.getY());
+        			
+        			// TODO: update points from within drawPath
         			points.tellOfMovement(event.getX(), event.getY());
+        		} else if (MotionEvent.ACTION_DOWN == event.getAction()) {
+        			drawPath.startNewPath(event.getX(), event.getY());
         		}
         		
         		return true;

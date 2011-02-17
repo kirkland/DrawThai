@@ -3,7 +3,7 @@ package info.kirklander.draw_thai;
 import java.util.LinkedList;
 
 public class PointSeries {
-	private final LinkedList<Point> points = new LinkedList<Point>();
+	private LinkedList<Point> points = new LinkedList<Point>();
 	private Point currentGoalPoint;
 	
 	public interface PointSeriesChangeListener {
@@ -57,5 +57,12 @@ public class PointSeries {
 			
 			notifyListener();
 		}
+	}
+	
+	public void reset() {
+		for (Point point : points) {
+			point.changeStatus(Point.UNTOUCHED);
+		}
+		currentGoalPoint = null;
 	}
 }
