@@ -9,6 +9,9 @@ import android.graphics.Paint.Style;
 import android.view.View;
 
 public class TouchView extends View {
+	// since we can't see what's under our figure, add this as an offset
+	static float TOUCH_OFFSET = (float) 10.0;
+	
 	private final DrawPath drawPath;
 	
 	public TouchView(Context context, DrawPath drawPath) {
@@ -42,10 +45,10 @@ public class TouchView extends View {
 		float prev_x = 0, prev_y = 0;
 		
 		paint.setColor(Color.BLACK);
-		paint.setStrokeWidth(5);
+		paint.setStrokeWidth(10);
 		for (DrawPoint drawPoint : drawPath.getDrawPoints()) {
 			if (prev_x != 0 && prev_y != 0) {
-				canvas.drawLine(prev_x, prev_y, drawPoint.getX(), drawPoint.getY(), paint);
+				canvas.drawLine(prev_x, prev_y - TOUCH_OFFSET, drawPoint.getX(), drawPoint.getY() - TOUCH_OFFSET, paint);
 			}
 			prev_x = drawPoint.getX(); prev_y = drawPoint.getY();
 		}
