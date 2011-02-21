@@ -35,6 +35,8 @@ public class Game {
 		for (GoalPoint gp : goalPoints) {
 			gp.status = GoalPoint.UNTOUCHED;
 		}
+		
+		this.currentGoalPoint = goalPoints.getFirst();
 	}
 	
 	// user is tracing w/ finger
