@@ -12,6 +12,10 @@ public class Game {
 		notifyListener();
 	}
 	
+	public LinkedList<GoalPoint> getGoalPoints() {
+		return goalPoints;
+	}
+	
 	// on event down, clear out whatever we had before.
 	public void startNewDrawPath(float x, float y) {
 		// start new draw path
