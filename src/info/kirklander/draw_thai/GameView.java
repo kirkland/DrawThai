@@ -29,6 +29,8 @@ public class GameView extends View {
 		
 		Paint paint = new Paint();
 		paint.setStyle(Style.FILL);
+        paint.setStrokeJoin(Paint.Join.ROUND);
+        paint.setStrokeCap(Paint.Cap.ROUND);
 		
 		for (GoalPoint goalPoint : this.game.getGoalPoints()) {
 			paint.setColor(goalPoint.color());
