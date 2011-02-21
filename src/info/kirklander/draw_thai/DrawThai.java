@@ -53,6 +53,5 @@ public class DrawThai extends Activity {
         		return true;
         	} 
         });
-
     }
 }

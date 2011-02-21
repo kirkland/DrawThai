@@ -5,6 +5,7 @@ import java.util.LinkedList;
 public class Game {
 	private LinkedList<GoalPoint> goalPoints;
 	private LinkedList<Point> drawPoints;
+	private GoalPoint currentGoalPoint;
 	
 	Game() {
 		this.goalPoints = new LinkedList<GoalPoint>();
@@ -21,6 +22,10 @@ public class Game {
 		return this.goalPoints;
 	}
 	
+	public LinkedList<Point> getDrawPoints() {
+		return this.drawPoints;
+	}
+	
 	// on event down, clear out whatever we had before.
 	public void startNewDrawPath(float x, float y) {
 		// start new draw path
@@ -34,7 +39,17 @@ public class Game {
 	
 	// user is tracing w/ finger
 	public void addDrawPoint(float x, float y) {
-		drawPoints.add(new Point(x, y));
+		Point new_point = new Point(x, y);
+		drawPoints.add(new_point);
+		
+		// light up goal point if we hit it
+		if (null == this.currentGoalPoint) {
+			this.currentGoalPoint = goalPoints.getFirst();
+		}
+		if (new_point.intersects((Point) this.currentGoalPoint)) {
+			this.currentGoalPoint.status = GoalPoint.TOUCHED;
+		}
+		
 		notifyListener();
 	}
 	

@@ -32,19 +32,19 @@ public class GameView extends View {
 		
 		for (GoalPoint goalPoint : this.game.getGoalPoints()) {
 			paint.setColor(goalPoint.color());
-			canvas.drawCircle(goalPoint.x, goalPoint.y, GoalPoint.RADIUS, paint);
+			canvas.drawCircle(goalPoint.x, goalPoint.y, goalPoint.radius, paint);
 		}
 		
-//		// holds previous coords so we can draw line from them to current point
-//		float prev_x = 0, prev_y = 0;
-//		
-//		paint.setColor(Color.BLACK);
-//		paint.setStrokeWidth(10);
-//		for (DrawPoint drawPoint : drawPath.getDrawPoints()) {
-//			if (prev_x != 0 && prev_y != 0) {
-//				canvas.drawLine(prev_x, prev_y - TOUCH_OFFSET, drawPoint.getX(), drawPoint.getY() - TOUCH_OFFSET, paint);
-//			}
-//			prev_x = drawPoint.getX(); prev_y = drawPoint.getY();
-//		}
+		// holds previous coords so we can draw line from them to current point
+		float prev_x = 0, prev_y = 0;
+		
+		paint.setColor(Color.BLACK);
+		for (Point point : game.getDrawPoints()) {
+			paint.setStrokeWidth(point.radius * 2);
+			if (prev_x != 0 && prev_y != 0) {
+				canvas.drawLine(prev_x, prev_y, point.x, point.y, paint);
+			}
+			prev_x = point.x; prev_y = point.y;
+		}
 	}
 }
