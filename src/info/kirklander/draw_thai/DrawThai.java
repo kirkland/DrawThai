@@ -26,7 +26,6 @@ public class DrawThai extends Activity {
         game.addGoalPoint((float) 75, (float) 150);
         game.addGoalPoint((float) 125, (float) 125);
         game.addGoalPoint((float) 175, (float) 150);
-        game.addGoalPoint((float) 175, (float) 150);
         game.addGoalPoint((float) 175, (float) 200);
         game.addGoalPoint((float) 175, (float) 250);
         game.addGoalPoint((float) 175, (float) 300);
