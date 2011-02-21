@@ -4,7 +4,7 @@ import android.graphics.Color;
 
 public class GoalPoint extends Point {
 	public static final int UNTOUCHED = 0;
-	public static final int TOUCHED = 0;
+	public static final int TOUCHED = 1;
 	public int status;
 	
 	GoalPoint(float x, float y) {
