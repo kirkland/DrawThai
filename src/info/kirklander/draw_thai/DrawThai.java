@@ -14,11 +14,9 @@ public class DrawThai extends Activity {
         
         final Game game = new Game();
         
-        // set up points model (these are the goals that the user must move over in order)
+        // these are the goals that the user must move over in order
         // showing Gor Gai now as a proof of concept.
         // TODO: store this data more better like
-        
-//        final PointSeries points = new PointSeries();
         game.addGoalPoint(75, 300);
         game.addGoalPoint(75, 250);
         game.addGoalPoint(75, 200);
@@ -31,14 +29,10 @@ public class DrawThai extends Activity {
         game.addGoalPoint(175, 250);
         game.addGoalPoint(175, 300);
         
-		// DrawPath instance holds where the user has been so far.
-//		final DrawPath drawPath = new DrawPath(points);
-        
-//        final EditText text1 = (EditText) findViewById(R.id.text1);
-//        final EditText text2 = (EditText) findViewById(R.id.text2);
-        
+        // create view and display it
         final GameView gv = new GameView(this, game);
-		
+        ((ViewGroup) findViewById(R.id.main)).addView(gv);
+        
         // redraw view whenever model changes
 		game.setGameChangeListener(new Game.GameChangeListener() {
 			@Override
@@ -46,8 +40,6 @@ public class DrawThai extends Activity {
 				gv.invalidate();
 			}
 		});
-        
-        ((ViewGroup) findViewById(R.id.main)).addView(gv);
         
         gv.setOnTouchListener(new View.OnTouchListener() {
         	@Override
