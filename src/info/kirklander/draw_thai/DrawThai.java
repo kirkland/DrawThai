@@ -47,7 +47,11 @@ public class DrawThai extends Activity {
         	@Override
         	public boolean onTouch(View v, MotionEvent event) {
         		if (MotionEvent.ACTION_MOVE == event.getAction()) {
-        			game.addDrawPoint(event.getX(), event.getY());
+        			// add a point, and play a sound if hit a target
+        			if (game.addDrawPoint(event.getX(), event.getY())) {
+        				MediaPlayer mp = MediaPlayer.create(DrawThai.this, R.raw.bell);
+            			mp.start();
+        			}
         		} else if (MotionEvent.ACTION_DOWN == event.getAction()) {
         			game.startNewDrawPath(event.getX(), event.getY());
         		}

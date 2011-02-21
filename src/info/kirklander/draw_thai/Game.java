@@ -40,7 +40,9 @@ public class Game {
 	}
 	
 	// user is tracing w/ finger
-	public void addDrawPoint(float x, float y) {
+	// return true if hit a target
+	boolean addDrawPoint(float x, float y) {
+		boolean rv = false;
 		Point new_point = new Point(x, y);
 		drawPoints.add(new_point);
 		
@@ -50,6 +52,7 @@ public class Game {
 		}
 		if (new_point.intersects((Point) this.currentGoalPoint)) {
 			this.currentGoalPoint.status = GoalPoint.TOUCHED;
+			rv = true;
 			
 			// TODO: refactor
 			int prevIndex = goalPoints.indexOf(currentGoalPoint);
@@ -59,6 +62,7 @@ public class Game {
 		}
 		
 		notifyListener();
+		return rv;
 	}
 	
 	// listener
