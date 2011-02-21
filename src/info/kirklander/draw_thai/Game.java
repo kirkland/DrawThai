@@ -3,17 +3,22 @@ package info.kirklander.draw_thai;
 import java.util.LinkedList;
 
 public class Game {
-	private LinkedList<GoalPoint> goalPoints = new LinkedList<GoalPoint>();
-	private LinkedList<Point> drawPoints = new LinkedList<Point>();
+	private LinkedList<GoalPoint> goalPoints;
+	private LinkedList<Point> drawPoints;
+	
+	Game() {
+		this.goalPoints = new LinkedList<GoalPoint>();
+		this.drawPoints = new LinkedList<Point>();
+	}
 	
 	// points the user must try to go through
 	public void addGoalPoint(float x, float y) {
-		goalPoints.add(new GoalPoint(x, y));
+		this.goalPoints.add(new GoalPoint(x, y));
 		notifyListener();
 	}
 	
 	public LinkedList<GoalPoint> getGoalPoints() {
-		return goalPoints;
+		return this.goalPoints;
 	}
 	
 	// on event down, clear out whatever we had before.

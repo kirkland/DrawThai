@@ -5,7 +5,7 @@ import android.graphics.Color;
 public class GoalPoint extends Point {
 	public float x,y;
 	
-	public static final float RADIUS = (float) 30.0;
+	public static final float RADIUS = (float) 10.0;
 	
 	public static final int UNTOUCHED = 0;
 	public static final int TOUCHED = 0;
@@ -17,7 +17,8 @@ public class GoalPoint extends Point {
 	}
 	
 	GoalPoint(float x, float y) {
-		super(x, y);
+		this.x = x;
+		this.y = y;
 		status = UNTOUCHED;
 	}
 	
