@@ -1,10 +1,12 @@
 package info.kirklander.draw_thai;
 
 import android.app.Activity;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 public class DrawThai extends Activity {
     @Override
@@ -52,6 +54,16 @@ public class DrawThai extends Activity {
         		
         		return true;
         	} 
+        });
+        
+        // experimental: set up button to play sound
+        final Button button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+        	@Override
+        	public void onClick(View v) {
+        		MediaPlayer mp = MediaPlayer.create(DrawThai.this, R.raw.bell);
+        	    mp.start();
+        	}
         });
     }
 }

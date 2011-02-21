@@ -11,22 +11,15 @@ android:orientation="horizontal"
 android:layout_width="fill_parent"
 android:layout_height="wrap_content">
 
+
     
-<EditText
-android:id="@+id/text1"
-android:text="@string/defaultLeftText"
-android:focusable="false"
+<Button
+android:id="@+id/button"
+android:text="@string/buttonText"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 android:layout_weight="1"/>
 
-<EditText
-android:id="@+id/text2"
-android:text="@string/defaultRightText"
-android:focusable="false"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-android:layout_weight="1"/>
 
 </LinearLayout>
 </LinearLayout>
